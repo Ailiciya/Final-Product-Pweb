@@ -16,6 +16,16 @@
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            .profile-card {
+            z-index: 1000;
+            display: none;
+            width: 300px;
+            top: 5rem;
+            right: 0;
+            }
+        </style>
     </head>
 
     <body>
@@ -40,13 +50,46 @@
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                            <a href="#" class="position-relative me-4 my-auto">
-                                <i class="fa fa-shopping-bag fa-2x"></i>
-                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-                            </a>
-                            <a href="#" class="my-auto">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
+                            <!-- CART -->
+                            <button
+                            class="btn my-auto position-relative"
+                            onclick="openModalCart()">
+                            <i class="fa fa-shopping-bag fa-2x text-primary"></i>
+                            <span
+                                id="cart-count"
+                                class="position-absolute bg-secondary rounded-circle align-items-center justify-content-center text-white px-1"
+                                style="top: -1px; left: 28px; height: 20px; min-width: 20px"></span>
+                            </button>
+                            <!-- END CART -->
+
+                            <!-- PROFILE -->
+                            <button
+                                id="profile-button"
+                                class="btn"
+                                data-bs-toggle="tooltip"
+                                title="View Profile">
+                                <i class="fas fa-user fa-2x text-primary"></i>
+                            </button>
+                            <!-- END PROFILE -->
+                            <!-- POP UP PROFILE -->
+                            <div
+                                id="profile-card"
+                                class="mt-2 card profile-card position-absolute">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title d-flex gap-2"><i class="fas fa-user fa text-primary"></i> Kevin</h5>
+                                    <p class="card-text my-2">
+                                    <strong>Email:</strong> john.doe@example.com <br />
+                                    <strong>No.Tlp:</strong> 08987168332333
+                                    </p>
+                                    <button
+                                    id="close-profile-card"
+                                    class="btn btn-secondary text-white">
+                                    logout
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- END POP UP PROFILE -->
+
                         </div>
                     </div>
                 </nav>
@@ -259,7 +302,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Green Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Sencha</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki rasa yang segar dan seperti rumput, dengan sedikit rasa manis dan umami.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.40.000 / kg</p>
                                                     <p id="priceSencha" class="text-dark fs-5 fw-bold mb-0">$4.99</p>
@@ -287,7 +330,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Black Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Ceylon</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki rasa yang bersih dan cerah, sering dengan sedikit astringensi.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.35.000 / kg</p>
                                                     <p id="priceCeylon" class="text-dark fs-5 fw-bold mb-0">Rp. 35000</p>
@@ -315,7 +358,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Herbal Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Rose</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki rasa yang lembut dan harum, dengan aroma bunga yang dan menenangkan.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.50.000 / kg</p>
                                                     <p id="priceRose" class="text-dark fs-5 fw-bold mb-0">Rp.50000</p>
@@ -343,7 +386,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Green Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Bancha</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memberikan rasa yang lebih kuat dan sedikit lebih pahit dibandingkan dengan sencha.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.45.000 / kg</p>
                                                     <p id="priceBancha" class="text-dark fs-5 fw-bold mb-0">Rp.45000</p>
@@ -371,7 +414,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Black Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Early Grey</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki rasa yang kaya dan kompleks dengan sentuhan citrus yang segar dan sedikit pedas.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.35.000 / kg</p>
                                                     <p id="priceEarlyGrey" class="text-dark fs-5 fw-bold mb-0">Rp.50000</p>
@@ -399,7 +442,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Herbal Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Rosemary </h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki rasa yang kuat, tajam, dan sedikit pahit, dengan nuansa pinus dan kamper yang segar.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.55.000 / kg</p>
                                                     <p id="priceRosemary" class="text-dark fs-5 fw-bold mb-0">Rp.50000</p>
@@ -427,7 +470,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Green Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Matcha</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki Rasa kuat dan pekat dengan sedikit manis, dan segar seperti rumput.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.40.000 / kg</p>
                                                     <p id="priceMatcha" class="text-dark fs-5 fw-bold mb-0">Rp.50000</p>
@@ -455,7 +498,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Black Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>Darjeeling</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>rasa ringan dan elegan, manis alami dengan aroma musky yang disebut "muscatel".</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.30.000 / kg</p>
                                                     <p id="priceDarjeeling" class="text-dark fs-5 fw-bold mb-0">Rp.30000</p>
@@ -483,7 +526,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Herbal Tea</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>pepermint</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                                                <p>memiliki rasa yang tajam, menthol yang menenangkan, dan sedikit manis.</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp.35.000 / kg</p>
                                                     <p id="pricePeppermint" class="text-dark fs-5 fw-bold mb-0">Rp.35000</p>
@@ -601,7 +644,149 @@
             </div>
         </div>
 
+        <!-- POP UP CART -->
+        <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5
+                        class="modal-title"
+                        id="exampleModalLabel">
+                        Cart
+                    </h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                        <div
+                            class="col-lg-12"
+                            id="cart-content">
+                            <!-- Cart data will be inserted here -->
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                    <a
+                        type="button"
+                        class="btn btn-primary text-white"
+                        id="checkout-button"
+                        href="./cart.html">
+                        Checkout
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END POP UP CART -->
+
         <script>
+            // MODAL CART
+            function openModalCart() {
+                var modal = new bootstrap.Modal(document.getElementById("myModal"), {});
+                modal.show();
+
+                modal._element.addEventListener("shown.bs.modal", () => {
+                fetchCartData();
+                });
+            }
+
+            fetch("./php/view_cart.php")
+            .then((response) => response.json())
+                .then((data) => {
+                    let cartCountElement = document.getElementById("cart-count"); // badge data yang akan di checkout;
+                    let cartCount = data.length; // jumlah item di cart
+
+                    if (data.length === 0) {
+                    cartCountElement.style.display = "none";
+                    } else {
+                    cartCountElement.textContent = cartCount;
+                    cartCountElement.style.display = "flex";
+                    }
+                })
+
+            // DATA CART
+            function fetchCartData() {
+                fetch("./php/view_cart.php")
+                .then((response) => response.json())
+                .then((data) => {
+                    let cartContent = document.getElementById("cart-content");
+                    let checkoutButton = document.getElementById("checkout-button");
+                    cartContent.innerHTML = "";
+
+                    if (data.length === 0) {
+                    cartContent.innerHTML = "<p>Your cart is empty.</p>";
+                    checkoutButton.style.display = "none";
+                    } else {
+                    checkoutButton.style.display = "block";
+
+                    let table = `
+                    <table class="table table-borderless text-center">
+                    <thead>
+                        <tr>
+                        <th>No</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Total Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                `;
+
+                    data.forEach((item, index) => {
+                        let no = index + 1;
+                        table += `
+                    <tr>
+                        <td>${no}</td>
+                        <td>${item.item}</td>
+                        <td>${item.quantity}</td>
+                        <td class="fw-bold">${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(item.total_harga)}</td>
+                    </tr>
+                    `;
+                    });
+
+                    table += `
+                    </tbody>
+                    </table>
+                `;
+
+                    cartContent.insertAdjacentHTML("beforeend", table);
+                    }
+                })
+                .catch((error) => console.error("Error fetching cart data:", error));
+            }
+            // END DATA CART
+
+             // MODAL PROFILE
+            document.addEventListener("DOMContentLoaded", function () {
+                var profileButton = document.getElementById("profile-button");
+                var profileCard = document.getElementById("profile-card");
+                var closeProfileCardButton = document.getElementById("close-profile-card");
+
+                profileButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                var rect = profileButton.getBoundingClientRect();
+                profileCard.style.display = profileCard.style.display === "block" ? "none" : "block";
+                });
+
+                document.addEventListener("click", function (event) {
+                if (!profileCard.contains(event.target) && !profileButton.contains(event.target)) {
+                    profileCard.style.display = "none";
+                }
+                });
+            });
+
+
             document.addEventListener('DOMContentLoaded', function() {
     // Fungsi untuk mengupdate harga berdasarkan quantity
     function updatePrice(event) {
