@@ -1,229 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-    <head>
-        <meta charset="utf-8">
-        <title>Teavou</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7O7aF1Xf5bD1/9l5Qd7M7YBbV1/lG8p5+5"
+      crossorigin="anonymous" />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
+      integrity="sha384-QJHtvGhmr9K9reUgC6I9Ynd0ZKkNbCO1bJgC1/6N8aiYAXZR0d5kFltvG0xP5oo"
+      crossorigin="anonymous"></script>
 
-    <body>
-        <div class="container-fluid fixed-top">
-            <div class="container topbar bg-white d-none d-lg-block">
-                <div class="d-flex justify-content-between">
-                    <div class="top-link pe-2">
-                    </div>
-                </div>
-            </div>
-            <div class="container px-0">
-                <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand"><img src="logo.png" alt="Teavou" style="width: 100px; height: 70px;"></a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="product.html" class="nav-item nav-link">Product</a>
-                            <a href="cart.html" class="nav-item nav-link active">Cart</a>
-                        </div>
-                        <div class="d-flex m-3 me-0">
-                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                            <a href="#" class="position-relative me-4 my-auto">
-                                <i class="fa fa-shopping-bag fa-2x"></i>
-                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-                            </a>
-                            <a href="#" class="my-auto">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+    <title>Teavou</title>
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport" />
+    <meta
+      content=""
+      name="keywords" />
+    <meta
+      content=""
+      name="description" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet" />
+    <link
+      href="lib/lightbox/css/lightbox.min.css"
+      rel="stylesheet" />
+    <link
+      href="lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet" />
+    <link
+      href="css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      href="css/style.css"
+      rel="stylesheet" />
+
+    <style>
+      .button {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
+      }
+      .badge {
+        background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
+      }
+      .search {
+        color: #4caf50;
+      }
+      .cart {
+        color: #4caf50;
+      }
+
+      .profile {
+        color: #4caf50;
+      }
+
+      .profile-card {
+        z-index: 1000;
+        display: none;
+        width: 300px;
+        top: 5rem;
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid fixed-top">
+      <div class="container topbar bg-white d-none d-lg-block">
+        <div class="d-flex justify-content-between">
+          <div class="top-link pe-2"></div>
         </div>
-        <!-- Navbar End -->
+      </div>
+      <div class="container px-0">
+        <nav class="navbar navbar-light bg-white navbar-expand-xl">
+          <a
+            href="index.html"
+            class="navbar-brand"
+            ><img
+              src="logo.png"
+              alt="Teavou"
+              style="width: 100px; height: 70px"
+          /></a>
+          <button
+            class="navbar-toggler py-2 px-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse bg-white"
+            id="navbarCollapse">
+            <div class="navbar-nav mx-auto">
+              <a
+                href="index.html"
+                class="nav-item nav-link active"
+                >Home</a
+              >
+              <a
+                href="product.html"
+                class="nav-item nav-link"
+                >Products</a
+              >
 
-        
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                        </div>
-                    </div>
-                </div>
+              <a
+                href="cart.html"
+                class="nav-item nav-link"
+                >Cart</a
+              >
             </div>
+            <div class="d-flex m-3 me-0">
+              <button
+                class="btn-search btn btn-md-square rounded-circle bg-white me-4 border"
+                data-bs-toggle="modal"
+                data-bs-target="#searchModal">
+                <i class="fas fa-search search"></i>
+              </button>
+
+              <!-- CART -->
+              <button
+                class="btn my-auto position-relative"
+                onclick="openModalCart()">
+                <i class="fa fa-shopping-bag fa-2x cart"></i>
+                <span
+                  id="cart-count"
+                  class="position-absolute rounded-circle align-items-center justify-content-center text-white px-1 badge"
+                  style="top: -1px; left: 28px; height: 20px; min-width: 20px"></span>
+              </button>
+              <!-- END CART -->
+
+              <!-- PROFILE -->
+              <button
+                id="profile-button"
+                class="btn"
+                data-bs-toggle="tooltip"
+                title="View Profile">
+                <i class="fas fa-user fa-2x profile"></i>
+              </button>
+
+              <!-- POP UP PROFILE -->
+              <div
+                id="profile-card"
+                class="mt-2 card profile-card position-absolute">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title d-flex gap-2"><i class="fas fa-user fa profile"></i> Kevin</h5>
+                  <p class="card-text my-2">
+                    <strong>Email:</strong> john.doe@example.com <br />
+                    <strong>No.Tlp:</strong> 08987168332333
+                  </p>
+                  <button
+                    id="close-profile-card"
+                    class="btn button text-white">
+                    logout
+                  </button>
+                </div>
+              </div>
+              <!-- END POP UP PROFILE -->
+
+              <!-- END PROFILE -->
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Modal Search Start -->
+    <div
+      class="modal fade"
+      id="searchModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="exampleModalLabel">
+              Search by keyword
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex align-items-center">
+            <div class="input-group w-75 mx-auto d-flex">
+              <input
+                type="search"
+                class="form-control p-3"
+                placeholder="keywords"
+                aria-describedby="search-icon-1" />
+              <span
+                id="search-icon-1"
+                class="input-group-text p-3"
+                ><i class="fa fa-search"></i
+              ></span>
+            </div>
+          </div>
         </div>
-        <!-- Modal Search End -->
+      </div>
+    </div>
+    <!-- Modal Search End -->
 
-            <!-- Modal Payment Start -->
-            <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="paymentModalLabel">Pilihan Pembayaran</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="paymentForm">
-                                <div class="form-group">
-                                    <label for="paymentMethod">Pilih Metode Pembayaran</label>
-                                    <select class="form-control" id="paymentMethod" name="paymentMethod">
-                                        <option value="bank_transfer">Transfer Bank</option>
-                                        <option value="e_wallet">E-Wallet</option>
-                                        <option value="cash">Cash</option>
-                                    </select>
-                                </div>
-                                <div id="paymentInfo" class="mt-3" style="display: none;">
-                                    <div id="bank_transfer_info" style="display: none;">
-                                        <h5>Transfer Bank</h5>
-                                        <p>Silakan transfer ke rekening berikut:</p>
-                                        <p><strong>Bank: BCA</strong></p>
-                                        <p><strong>Nomor Rekening: 123456789</strong></p>
-                                        <p><strong>Atas Nama: Teavou</strong></p>
-                                    </div>
-                                    <div id="e_wallet_info" style="display: none;">
-                                        <h5>E-Wallet</h5>
-                                        <p>Silakan scan QRIS berikut:</p>
-                                        <img src="img/qris.png" alt="QRIS" style="width: 200px;">
-                                    </div>
-                                    <div id="cash_info" style="display: none;">
-                                        <h5>Cash</h5>
-                                        <p><strong>Silahkan lakukan Pembayaran secara Tunai.</strong></p>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary" id="confirm-payment">Konfirmasi Pembayaran</button>
-                        </div>
-                    </div>
+    <!-- Modal Payment Start -->
+    <div
+      class="modal fade"
+      id="paymentModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="paymentModalLabel"
+      aria-hidden="true">
+      <div
+        class="modal-dialog"
+        role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="paymentModalLabel">
+              Pilihan Pembayaran
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="paymentForm">
+              <div class="form-group">
+                <label for="paymentMethod">Pilih Metode Pembayaran</label>
+                <select
+                  class="form-control"
+                  id="paymentMethod"
+                  name="paymentMethod">
+                  <option value="bank_transfer">Transfer Bank</option>
+                  <option value="e_wallet">E-Wallet</option>
+                  <option value="cash">Cash</option>
+                </select>
+              </div>
+              <div
+                id="paymentInfo"
+                class="mt-3"
+                style="display: none">
+                <div
+                  id="bank_transfer_info"
+                  style="display: none">
+                  <h5>Transfer Bank</h5>
+                  <p>Silakan transfer ke rekening berikut:</p>
+                  <p><strong>Bank: BCA</strong></p>
+                  <p><strong>Nomor Rekening: 123456789</strong></p>
+                  <p><strong>Atas Nama: Teavou</strong></p>
                 </div>
-            </div>
+                <div
+                  id="e_wallet_info"
+                  style="display: none">
+                  <h5>E-Wallet</h5>
+                  <p>Silakan scan QRIS berikut:</p>
+                  <img
+                    src="img/qris.png"
+                    alt="QRIS"
+                    style="width: 200px" />
+                </div>
+                <div
+                  id="cash_info"
+                  style="display: none">
+                  <h5>Cash</h5>
+                  <p><strong>Silahkan lakukan Pembayaran secara Tunai.</strong></p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Batal
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="confirm-payment">
+              Konfirmasi Pembayaran
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--Modal Payment End-->
 
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+      <h1 class="text-center text-white display-6">Cart</h1>
+    </div>
+    <!-- Single Page Header End -->
 
-        <!-- Single Page Header start -->
-        <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Cart</h1>
+    <!-- Cart Page Start -->
+
+    <div class="container-fluid py-5">
+      <div class="container py-5">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Cancel/Delete</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+              <!-- Item  will be dynamically added here -->
+            </tbody>
+          </table>
         </div>
-        <!-- Single Page Header End -->
-
-
-        <!-- Cart Page Start -->
-        
-        <div class="container-fluid py-5">
-            <div class="container py-5">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Cancel/Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cart-items">
-                            <!-- Item  will be dynamically added here -->
-                        </tbody>
-                    </table>
+        <div class="mt-5">
+          <input
+            type="text"
+            class="border-0 border-bottom rounded me-5 py-3 mb-4"
+            placeholder="Coupon Code" />
+          <button
+            class="btn border-secondary rounded-pill px-4 py-3 text-primary"
+            type="button">
+            Apply Coupon
+          </button>
+        </div>
+        <div class="row g-4 justify-content-end">
+          <div class="col-8"></div>
+          <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+            <div class="bg-light rounded">
+              <div class="p-4">
+                <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
+                <div class="d-flex justify-content-between mb-4">
+                  <h5 class="mb-0 me-4">Subtotal:</h5>
+                  <p
+                    class="mb-0"
+                    id="subtotal">
+                    Rp.0
+                  </p>
                 </div>
-                <div class="mt-5">
-                    <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
-                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply Coupon</button>
+                <div class="d-flex justify-content-between">
+                  <h5 class="mb-0 me-4">Shipping</h5>
+                  <div class="">
+                    <p class="mb-0">Flat rate: Rp.15.000</p>
+                  </div>
                 </div>
-                <div class="row g-4 justify-content-end">
-                    <div class="col-8"></div>
-                    <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
-                        <div class="bg-light rounded">
-                            <div class="p-4">
-                                <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
-                                <div class="d-flex justify-content-between mb-4">
-                                    <h5 class="mb-0 me-4">Subtotal:</h5>
-                                    <p class="mb-0" id="subtotal">Rp.0</p>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0 me-4">Shipping</h5>
-                                    <div class="">
-                                        <p class="mb-0">Flat rate: Rp.15.000</p>
-                                    </div>
-                                </div>
-                                <p class="mb-0 text-end">Shipping to Amikom.</p>
-                            </div>
-                            <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
-                                <h5 class="mb-0 ps-4 me-4">Total</h5>
-                                <p class="mb-0 pe-4" id="total">Rp.0</p>
-                            </div>
-                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button" id="proceed-checkout">Proceed Checkout</button>
-                        </div>
-                    </div>
-                </div>
+                <p class="mb-0 text-end">Shipping to Amikom.</p>
+              </div>
+              <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                <h5 class="mb-0 ps-4 me-4">Total</h5>
+                <p
+                  class="mb-0 pe-4"
+                  id="total">
+                  Rp.0
+                </p>
+              </div>
+              <button
+                class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
+                type="button"
+                id="proceed-checkout">
+                Proceed Checkout
+              </button>
             </div>
+          </div>
         </div>
-    
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                // Fungsi untuk memuat data keranjang dari server saat halaman dimuat
-                loadCartItems();
-    
-                // Tombol Quantity +
-                $(document).on('click', '.btn-plus', function() {
-                    var itemId = $(this).closest('tr').data('item-id');
-                    var quantityInput = $(this).closest('.input-group').find('.quantity-input');
-                    var newQuantity = parseInt(quantityInput.val()) + 1;
-                    updateCartItem(itemId, newQuantity, quantityInput);
-                });
-    
-                // Tombol Quantity -
-                $(document).on('click', '.btn-minus', function() {
-                    var itemId = $(this).closest('tr').data('item-id');
-                    var quantityInput = $(this).closest('.input-group').find('.quantity-input');
-                    var currentQuantity = parseInt(quantityInput.val());
-                    if (currentQuantity > 1) {
-                        var newQuantity = currentQuantity - 1;
-                        updateCartItem(itemId, newQuantity, quantityInput);
-                    }
-                });
-    
-                // Fungsi untuk memuat data keranjang dari server
-                function loadCartItems() {
-                    $.ajax({
-                        url: 'php/view_cart.php',
-                        method: 'GET',
-                        dataType: 'json',
-                        success: function(response) {
-                            var cartItemsHtml = '';
-                            var subtotal = 0;
-    
-                            $.each(response, function(index, item) {
-                                var totalHarga = parseFloat(item.harga) * parseInt(item.quantity);
-                                subtotal += totalHarga;
-    
-                                cartItemsHtml += `
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Fungsi untuk memuat data keranjang dari server saat halaman dimuat
+        loadCartItems();
+
+        // Tombol Quantity +
+        $(document).on("click", ".btn-plus", function () {
+          var itemId = $(this).closest("tr").data("item-id");
+          var quantityInput = $(this).closest(".input-group").find(".quantity-input");
+          var newQuantity = parseInt(quantityInput.val()) + 1;
+          updateCartItem(itemId, newQuantity, quantityInput);
+        });
+
+        // Tombol Quantity -
+        $(document).on("click", ".btn-minus", function () {
+          var itemId = $(this).closest("tr").data("item-id");
+          var quantityInput = $(this).closest(".input-group").find(".quantity-input");
+          var currentQuantity = parseInt(quantityInput.val());
+          if (currentQuantity > 1) {
+            var newQuantity = currentQuantity - 1;
+            updateCartItem(itemId, newQuantity, quantityInput);
+          }
+        });
+
+        // Fungsi untuk memuat data keranjang dari server
+        function loadCartItems() {
+          $.ajax({
+            url: "php/view_cart.php",
+            method: "GET",
+            dataType: "json",
+            success: function (response) {
+              var cartItemsHtml = "";
+              var subtotal = 0;
+
+              $.each(response, function (index, item) {
+                var totalHarga = parseFloat(item.harga) * parseInt(item.quantity);
+                subtotal += totalHarga;
+
+                cartItemsHtml += `
                                     <tr data-item-id="${item.id}">
                                         <td>
                                             <p class="mb-0 mt-4">${item.item}</p>
@@ -256,258 +469,473 @@
                                         </td>
                                     </tr>
                                 `;
-                            });
-    
-                            $('#cart-items').html(cartItemsHtml);
-                            $('#subtotal').text('Rp.' + subtotal);
-                            var total = subtotal + 15000; // Flat rate shipping
-                            $('#total').text('Rp.' + total);
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseText);
-                            // Tampilkan pesan error jika diperlukan
-                        }
-                    });
-                }
-    
-                // Fungsi untuk mengupdate jumlah item di keranjang
-                function updateCartItem(itemId, newQuantity, quantityInput) {
-                    $.ajax({
-                        url: 'php/update_cart.php',
-                        method: 'POST',
-                        data: { item_id: itemId, quantity: newQuantity },
-                        dataType: 'json',
-                        success: function(response) {
-                            // Update nilai input quantity dan reload cart items
-                            quantityInput.val(newQuantity);
-                            loadCartItems(); // Memuat ulang daftar keranjang setelah update
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseText);
-                            // Tampilkan pesan error jika diperlukan
-                        }
-                    });
-                }
+              });
 
-                //fungsi untuk delete data dari server
-                    $(document).on('click', '.handle-delete', function() {
-                    var itemId = $(this).closest('tr').data('item-id');
-                    deleteCartItem(itemId);
-                });
+              $("#cart-items").html(cartItemsHtml);
+              $("#subtotal").text("Rp." + subtotal);
+              var total = subtotal + 15000; // Flat rate shipping
+              $("#total").text("Rp." + total);
+            },
+            error: function (xhr, status, error) {
+              console.error(xhr.responseText);
+              // Tampilkan pesan error jika diperlukan
+            },
+          });
+        }
 
-                function deleteCartItem(itemId) {
-                    $.ajax({
-                        url: 'php/delete_from_cart.php',
-                        method: 'POST',
-                        data: { item_id: itemId },
-                        dataType: 'json',
-                        success: function(response) {
-                            // Muat ulang item keranjang setelah menghapus
-                            loadCartItems();
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseText);
-                            // Tampilkan pesan error jika diperlukan
-                        }
-                    });
-                }
+        // Fungsi untuk mengupdate jumlah item di keranjang
+        function updateCartItem(itemId, newQuantity, quantityInput) {
+          $.ajax({
+            url: "php/update_cart.php",
+            method: "POST",
+            data: { item_id: itemId, quantity: newQuantity },
+            dataType: "json",
+            success: function (response) {
+              // Update nilai input quantity dan reload cart items
+              quantityInput.val(newQuantity);
+              loadCartItems(); // Memuat ulang daftar keranjang setelah update
+            },
+            error: function (xhr, status, error) {
+              console.error(xhr.responseText);
+              // Tampilkan pesan error jika diperlukan
+            },
+          });
+        }
 
-    
-                        // Fungsi untuk checkout
+        //fungsi untuk delete data dari server
+        $(document).on("click", ".handle-delete", function () {
+          var itemId = $(this).closest("tr").data("item-id");
+          deleteCartItem(itemId);
+        });
+
+        function deleteCartItem(itemId) {
+          $.ajax({
+            url: "php/delete_from_cart.php",
+            method: "POST",
+            data: { item_id: itemId },
+            dataType: "json",
+            success: function (response) {
+              // Muat ulang item keranjang setelah menghapus
+              loadCartItems();
+            },
+            error: function (xhr, status, error) {
+              console.error(xhr.responseText);
+              // Tampilkan pesan error jika diperlukan
+            },
+          });
+        }
+
+        // Fungsi untuk checkout
         // Menampilkan modal pilihan pembayaran saat klik checkout
-        $('#proceed-checkout').click(function() {
-            $('#paymentModal').modal('show');
+        $("#proceed-checkout").click(function () {
+          $("#paymentModal").modal("show");
         });
 
         // Menangani perubahan metode pembayaran
-        $('#paymentMethod').change(function() {
-            var paymentMethod = $(this).val();
-            $('#paymentInfo').show();
-            $('#bank_transfer_info').hide();
-            $('#e_wallet_info').hide();
-            $('#cash_info').hide();
-            if (paymentMethod == 'bank_transfer') {
-                $('#bank_transfer_info').show();
-            } else if (paymentMethod == 'e_wallet') {
-                $('#e_wallet_info').show();
-            } else if (paymentMethod == 'cash') {
-                $('#cash_info').show();
-            }
+        $("#paymentMethod").change(function () {
+          var paymentMethod = $(this).val();
+          $("#paymentInfo").show();
+          $("#bank_transfer_info").hide();
+          $("#e_wallet_info").hide();
+          $("#cash_info").hide();
+          if (paymentMethod == "bank_transfer") {
+            $("#bank_transfer_info").show();
+          } else if (paymentMethod == "e_wallet") {
+            $("#e_wallet_info").show();
+          } else if (paymentMethod == "cash") {
+            $("#cash_info").show();
+          }
         });
 
         // Menangani konfirmasi pembayaran
-        $('#confirm-payment').click(function() {
-            var paymentMethod = $('#paymentMethod').val();
-            checkoutCart(paymentMethod);
+        $("#confirm-payment").click(function () {
+          var paymentMethod = $("#paymentMethod").val();
+          checkoutCart(paymentMethod);
         });
 
         function checkoutCart(paymentMethod) {
-            $.ajax({
-                url: 'php/checkout.php',
-                method: 'POST',
-                data: { payment_method: paymentMethod },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.success) {
-                        alert('Checkout berhasil!');
-                        // Tutup modal
-                        $('#paymentModal').modal('hide');
-                        // Muat ulang item keranjang setelah checkout berhasil
-                        loadCartItems();
-                    } else {
-                        alert('Checkout gagal: ' + response.error);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                    alert('Terjadi kesalahan saat checkout.');
-                }
-            });
+          $.ajax({
+            url: "php/checkout.php",
+            method: "POST",
+            data: { payment_method: paymentMethod },
+            dataType: "json",
+            success: function (response) {
+              if (response.success) {
+                alert("Checkout berhasil!");
+                // Tutup modal
+                $("#paymentModal").modal("hide");
+                // Muat ulang item keranjang setelah checkout berhasil
+                loadCartItems();
+              } else {
+                alert("Checkout gagal: " + response.error);
+              }
+            },
+            error: function (xhr, status, error) {
+              console.error(xhr.responseText);
+              alert("Terjadi kesalahan saat checkout.");
+            },
+          });
         }
-    });
-        </script>
-        
+      });
+    </script>
 
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-<script>
-    $(document).ready(function() {
+    <script>
+      $(document).ready(function () {
         // Mengambil data keranjang belanja dari view_cart.php menggunakan AJAX
         $.ajax({
-            url: 'php/view_cart.php',
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                // Memproses data yang diterima dari server
-                var cartItemsHtml = '';
+          url: "php/view_cart.php",
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            // Memproses data yang diterima dari server
+            var cartItemsHtml = "";
 
-                // Loop untuk setiap item dalam data
-                for (var i = 0; i < data.length; i++) {
-                    var item = data[i];
+            // Loop untuk setiap item dalam data
+            for (var i = 0; i < data.length; i++) {
+              var item = data[i];
 
-                    // Membuat baris baru untuk setiap item dalam tabel
-                    cartItemsHtml += '<tr>';
-                    cartItemsHtml += '<td><div class="d-flex align-items-center"><img src="img/' + item.item + '.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt=""></div></td>';
-                    cartItemsHtml += '<td><p class="mb-0 mt-4">' + item.item + '</p></td>';
-                    cartItemsHtml += '<td><p class="mb-0 mt-4">Rp.' + item.harga + '</p></td>';
-                    cartItemsHtml += '<td><div class="input-group quantity mt-4" style="width: 100px;"><div class="input-group-btn">';
-                    cartItemsHtml += '<button class="btn btn-sm btn-minus rounded-circle bg-light border"><i class="fa fa-minus"></i></button></div>';
-                    cartItemsHtml += '<input type="text" class="form-control form-control-sm text-center border-0" value="' + item.quantity + '">';
-                    cartItemsHtml += '<div class="input-group-btn"><button class="btn btn-sm btn-plus rounded-circle bg-light border"><i class="fa fa-plus"></i></button></div></div></td>';
-                    cartItemsHtml += '<td><p class="mb-0 mt-4">Rp.' + item.total_harga + '</p></td>';
-                    cartItemsHtml += '<td><button class="btn btn-md rounded-circle bg-light border mt-4"><i class="fa fa-times text-danger"></i></button></td>';
-                    cartItemsHtml += '</tr>';
-                }
-
-                // Memasukkan HTML yang dibuat ke dalam tbody dengan id "cartItems"
-                $('#cartItems').html(cartItemsHtml);
-
-                // Menghitung subtotal dan total dari data keranjang belanja
-                var subtotal = 0;
-                for (var i = 0; i < data.length; i++) {
-                    subtotal += parseFloat(data[i].total_harga);
-                }
-                $('#subtotal').text('Rp.' + subtotal.toFixed(2));
-
-                var total = subtotal + 15000; // Menambahkan biaya pengiriman flat rate
-                $('#total').text('Rp.' + total.toFixed(2));
-            },
-            error: function(xhr, status, error) {
-                // Menangani kesalahan jika terjadi
-                console.error('Terjadi kesalahan dalam mengambil data keranjang belanja:', status, error);
+              // Membuat baris baru untuk setiap item dalam tabel
+              cartItemsHtml += "<tr>";
+              cartItemsHtml += '<td><div class="d-flex align-items-center"><img src="img/' + item.item + '.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt=""></div></td>';
+              cartItemsHtml += '<td><p class="mb-0 mt-4">' + item.item + "</p></td>";
+              cartItemsHtml += '<td><p class="mb-0 mt-4">Rp.' + item.harga + "</p></td>";
+              cartItemsHtml += '<td><div class="input-group quantity mt-4" style="width: 100px;"><div class="input-group-btn">';
+              cartItemsHtml += '<button class="btn btn-sm btn-minus rounded-circle bg-light border"><i class="fa fa-minus"></i></button></div>';
+              cartItemsHtml += '<input type="text" class="form-control form-control-sm text-center border-0" value="' + item.quantity + '">';
+              cartItemsHtml += '<div class="input-group-btn"><button class="btn btn-sm btn-plus rounded-circle bg-light border"><i class="fa fa-plus"></i></button></div></div></td>';
+              cartItemsHtml += '<td><p class="mb-0 mt-4">Rp.' + item.total_harga + "</p></td>";
+              cartItemsHtml += '<td><button class="btn btn-md rounded-circle bg-light border mt-4"><i class="fa fa-times text-danger"></i></button></td>';
+              cartItemsHtml += "</tr>";
             }
+
+            // Memasukkan HTML yang dibuat ke dalam tbody dengan id "cartItems"
+            $("#cartItems").html(cartItemsHtml);
+
+            // Menghitung subtotal dan total dari data keranjang belanja
+            var subtotal = 0;
+            for (var i = 0; i < data.length; i++) {
+              subtotal += parseFloat(data[i].total_harga);
+            }
+            $("#subtotal").text("Rp." + subtotal.toFixed(2));
+
+            var total = subtotal + 15000; // Menambahkan biaya pengiriman flat rate
+            $("#total").text("Rp." + total.toFixed(2));
+          },
+          error: function (xhr, status, error) {
+            // Menangani kesalahan jika terjadi
+            console.error("Terjadi kesalahan dalam mengambil data keranjang belanja:", status, error);
+          },
         });
-    });
-</script>
-        <!-- Cart Page End -->
+      });
+    </script>
+    <!-- Cart Page End -->
 
-       
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-            <div class="container py-5">
-                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
-                    <div class="row g-4">
-                        <div class="col-lg-3">
-                            <a href="#">
-                                <h1 class="text-primary mb-0">Teavou</h1>
-                                <p class="text-secondary mb-0">Tea products</p>
-                            </a>
-                        </div>
-                        <div class="col-lg-6">
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="d-flex justify-content-end pt-3">
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://twitter.com/FindMyHalfnU"><i class="fas fa-times"></i></a>
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.instagram.com/kevin.r.i/"><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href="https://github.com/Ailiciya"><i class="fab fa-github"></i></a>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Why People Like us!</h4>
-                            <p class="mb-4">Everyone loves us because we have different kinds of tea, especially green tea, black tea, and also herbal tea and we also have different kinds of bread.</p>
-                            <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Shop Info</h4>
-                            <a class="btn-link" href="">About Us</a>
-                            <a class="btn-link" href="">Contact Us</a>
-                            <a class="btn-link" href="">Privacy Policy</a>
-                            <a class="btn-link" href="">Terms & Condition</a>
-                            <a class="btn-link" href="">Return Policy</a>
-                            <a class="btn-link" href="">FAQs & Help</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Account</h4>
-                            <a class="btn-link" href="">My Account</a>
-                            <a class="btn-link" href="">Shop details</a>
-                            <a class="btn-link" href="">Shopping Cart</a>
-                            <a class="btn-link" href="">Order History</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Contact</h4>
-                            <p>Address: Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p>
-                            <p>Email: kevinirawan91@gmail.com</p>
-                            <p>Phone: +62 813 4882 6269</p>
-                            <p>Payment Accepted</p>
-                            <img src="img/payment.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                </div>
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+      <div class="container py-5">
+        <div
+          class="pb-4 mb-4"
+          style="border-bottom: 1px solid rgba(226, 175, 24, 0.5)">
+          <div class="row g-4">
+            <div class="col-lg-3">
+              <a href="#">
+                <h1 class="text-primary mb-0">Teavou</h1>
+                <p class="text-secondary mb-0">Tea products</p>
+              </a>
             </div>
+            <div class="col-lg-6"></div>
+            <div class="col-lg-3">
+              <div class="d-flex justify-content-end pt-3">
+                <a
+                  class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                  href="https://twitter.com/FindMyHalfnU"
+                  ><i class="fas fa-times"></i
+                ></a>
+                <a
+                  class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                  href="https://www.instagram.com/kevin.r.i/"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  class="btn btn-outline-secondary btn-md-square rounded-circle"
+                  href="https://github.com/Ailiciya"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="text-light mb-3">Why People Like us!</h4>
+              <p class="mb-4">Everyone loves us because we have different kinds of tea, especially green tea, black tea, and also herbal tea and we also have different kinds of bread.</p>
+              <a
+                href=""
+                class="btn border-secondary py-2 px-4 rounded-pill text-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex flex-column text-start footer-item">
+              <h4 class="text-light mb-3">Shop Info</h4>
+              <a
+                class="btn-link"
+                href=""
+                >About Us</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Contact Us</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Privacy Policy</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Terms & Condition</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Return Policy</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >FAQs & Help</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex flex-column text-start footer-item">
+              <h4 class="text-light mb-3">Account</h4>
+              <a
+                class="btn-link"
+                href=""
+                >My Account</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Shop details</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Shopping Cart</a
+              >
+              <a
+                class="btn-link"
+                href=""
+                >Order History</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="text-light mb-3">Contact</h4>
+              <p>Address: Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p>
+              <p>Email: kevinirawan91@gmail.com</p>
+              <p>Phone: +62 813 4882 6269</p>
+              <p>Payment Accepted</p>
+              <img
+                src="img/payment.png"
+                class="img-fluid"
+                alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        
-        <div class="container-fluid copyright bg-dark py-4">
+    <div class="container-fluid copyright bg-dark py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <span class="text-light"
+              ><a href="#"><i class="fas fa-copyright text-light me-2"></i>Teavou</a>, All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 my-auto text-center text-md-end text-white">
+            Designed By
+            <a
+              class="border-bottom"
+              href="https://www.instagram.com/kevin.r.i/"
+              >Kevin</a
+            >
+            Distributed By
+            <a
+              class="border-bottom"
+              href="https://id.pinterest.com/search/pins/?q=Elysia&rs=typed"
+              >Elysia</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POP UP CART -->
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="exampleModalLabel">
+              Cart
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Teavou</a>, All right reserved.</span>
-                    </div>
-                    <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        Designed By <a class="border-bottom" href="https://www.instagram.com/kevin.r.i/">Kevin</a> Distributed By <a class="border-bottom" href="https://id.pinterest.com/search/pins/?q=Elysia&rs=typed">Elysia</a>
-                    </div>
+              <div class="row">
+                <div
+                  class="col-lg-12"
+                  id="cart-content">
+                  <!-- Cart data will be inserted here -->
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-footer">
+            <a
+              type="button"
+              class="btn button text-white"
+              id="checkout-button"
+              href="./cart.html">
+              Checkout
+            </a>
+          </div>
         </div>
+      </div>
+    </div>
+    <!-- END POP UP CART -->
 
-        <script>
-            window.onload = function() {
-                document.getElementById("e_wallet_info").style.display = "block";
-            };
-        </script>
+    <script>
+      // MODAL CART
+      function openModalCart() {
+        var modal = new bootstrap.Modal(document.getElementById("myModal"), {});
+        modal.show();
+
+        modal._element.addEventListener("shown.bs.modal", () => {
+          fetchCartData();
+        });
+      }
+
+      fetch("./php/view_cart.php")
+        .then((response) => response.json())
+        .then((data) => {
+          let cartCountElement = document.getElementById("cart-count"); // badge data yang akan di checkout;
+          let cartCount = data.length; // jumlah item di cart
+
+          if (data.length === 0) {
+            cartCountElement.style.display = "none";
+          } else {
+            cartCountElement.textContent = cartCount;
+            cartCountElement.style.display = "flex";
+          }
+        });
+
+      // DATA CART
+      function fetchCartData() {
+        fetch("./php/view_cart.php")
+          .then((response) => response.json())
+          .then((data) => {
+            let cartContent = document.getElementById("cart-content");
+            let checkoutButton = document.getElementById("checkout-button");
+            cartContent.innerHTML = "";
+
+            if (data.length === 0) {
+              cartContent.innerHTML = "<p>Your cart is empty.</p>";
+              checkoutButton.style.display = "none";
+            } else {
+              checkoutButton.style.display = "block";
+
+              let table = `
+                    <table class="table table-borderless text-center">
+                    <thead>
+                        <tr>
+                        <th>No</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Total Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                `;
+
+              data.forEach((item, index) => {
+                let no = index + 1;
+                table += `
+                    <tr>
+                        <td>${no}</td>
+                        <td>${item.item}</td>
+                        <td>${item.quantity}</td>
+                        <td class="fw-bold">${new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(item.total_harga)}</td>
+                    </tr>
+                    `;
+              });
+
+              table += `
+                    </tbody>
+                    </table>
+                `;
+
+              cartContent.insertAdjacentHTML("beforeend", table);
+            }
+          })
+          .catch((error) => console.error("Error fetching cart data:", error));
+      }
+      // END DATA CART
+      var profileCardPrimary = document.getElementById("profile-card");
+      profileCardPrimary.style.display = profileCardPrimary.style.display = "none";
+
+      // MODAL PROFILE
+      document.addEventListener("DOMContentLoaded", function () {
+        var profileButton = document.getElementById("profile-button");
+        var profileCard = document.getElementById("profile-card");
+        var closeProfileCardButton = document.getElementById("close-profile-card");
+
+        profileButton.addEventListener("click", function (event) {
+          event.stopPropagation();
+          var rect = profileButton.getBoundingClientRect();
+
+          profileCard.style.display = profileCard.style.display === "block" ? "none" : "block";
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!profileCard.contains(event.target) && !profileButton.contains(event.target)) {
+            profileCard.style.display = "none";
+          }
+        });
+      });
+
+      window.onload = function () {
+        document.getElementById("e_wallet_info").style.display = "block";
+      };
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -517,6 +945,5 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <script src="js/main.js"></script>
-    </body>
-
+  </body>
 </html>
